@@ -1,0 +1,21 @@
+class Solution {
+    public int maxSubArray(int[] nums) {
+        int sum=0;
+        int max=Integer.MIN_VALUE;
+        for(int i=0;i<nums.length;i++)
+        {
+            sum+=nums[i];
+            if(sum>max)
+                max=sum;
+            if(sum<0)
+                sum=0;
+        }
+        return max;
+    }
+}
+
+
+
+Kadane's Algorithm: at any particular index if sum<0 then no need to add that ele, just assign sum=0;
+
+Complexity: O(n)
