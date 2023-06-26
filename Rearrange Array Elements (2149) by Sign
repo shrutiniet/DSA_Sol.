@@ -1,0 +1,42 @@
+** Approach 1**
+
+class Solution {
+    public int[] rearrangeArray(int[] nums) {
+        int[]a=new int[nums.length/2];
+        int[]b=new int[nums.length/2];
+        int i=0;
+        int j=0;
+        int k=0;
+        while(k<nums.length)
+        {
+            if(nums[k]>0)
+            {
+                a[i]=nums[k];
+                i++;
+            }
+            else
+            {
+                b[j]=nums[k];
+                j++;
+            }
+            k++;
+        }
+        int m=0;
+        int n=0;
+        for(int l=0;l<nums.length;l++)
+        {
+            if(l%2==0)
+            {
+                nums[l]=a[m];
+                m++;
+            }
+            else
+            {
+                nums[l]=b[n];
+                n++;
+            }
+    
+        }     
+        return nums;   
+    }
+}
