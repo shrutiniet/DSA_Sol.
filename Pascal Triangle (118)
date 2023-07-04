@@ -1,0 +1,29 @@
+class Solution {
+        public List<List<Integer>> generate(int numRows) {
+           List<List<Integer>> ans = new ArrayList<>();
+        int[][] memo = new int[numRows][numRows];
+
+        for (int i = 0; i < numRows; i++) {
+            List<Integer> row = new ArrayList<>();
+            for (int j = 0; j <= i; j++) {
+                row.add(NCR(i, j, memo));
+            }
+            ans.add(row);
+        }
+        return ans;
+    }
+
+    public static int NCR(int n, int r, int[][] memo) {
+        if (r == 0 || n == r) {
+            return 1;
+        }
+        if (memo[n][r] != 0) {
+            return memo[n][r];
+        }
+        int result = NCR(n - 1, r - 1, memo) + NCR(n - 1, r, memo);
+        memo[n][r] = result;
+        return result;
+    }
+               
+    
+}
