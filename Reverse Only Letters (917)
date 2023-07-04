@@ -1,0 +1,27 @@
+class Solution {
+    public String reverseOnlyLetters(String s) {
+      StringBuilder str=new StringBuilder(s);
+        int start=0;
+        int end=s.length()-1;
+        while(start<=end)
+        {
+            if(!((str.charAt(start)>='a' && str.charAt(start)<='z')|| (str.charAt(start)>='A' && str.charAt(start)<='Z')))
+            {
+                start++;
+            }
+            else if(!((str.charAt(end)>='a' && str.charAt(end)<='z')|| (str.charAt(end)>='A' && str.charAt(end)<='Z')))
+            {
+                end--;
+            }
+            else
+            {
+                char tmp=str.charAt(start);
+                str.setCharAt(start,str.charAt(end));
+                str.setCharAt(end,tmp);
+                start++;
+                end--;
+            }
+        }
+        return String.valueOf(str);
+    }
+}
