@@ -1,0 +1,20 @@
+class Solution {
+    public int maxArea(int[] arr) {
+        int max=0;
+        int start=0;
+        int end=arr.length-1;
+        while(start<end)
+        {
+            int height=Math.min(arr[start],arr[end])*(end-start);
+            max=Math.max(height,max);
+            if(arr[start]<arr[end])
+                start++;
+            else
+                end--;
+        }
+        return max;
+    }
+}
+
+
+Using two pointer's approach
